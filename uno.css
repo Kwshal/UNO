@@ -1,0 +1,115 @@
+:root {
+     /* Base color */
+     --red: hsl(0, 100%, 70%);
+     --green: hsl(120, 100%, 70%);
+     --blue: hsl(240, 100%, 70%);
+     --yellow: hsl(60, 100%, 70%);
+     --black: hsl(0, 0%, 10%);
+}
+
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     user-select: none;
+}
+h1 {
+     font-size: 50px;
+     font-weight: 900;
+     margin: 10px 0;
+     font-family: Arial, Helvetica, sans-serif;
+     text-align: center;
+}
+#board {
+     height: fit-content;
+     width: 100vw;
+     /* border: 1px solid black; */
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+}
+#start-button {
+     height: fit-content;
+     width: fit-content;
+     font-size: 30px;
+     font-weight: bold;
+     border-radius: 10px;
+     background-color: var(--black);
+     color: #ffffff;
+     padding: 10px 20px;
+     font-family: Arial, Helvetica, sans-serif;
+}
+.player {
+     height: fit-content;
+     width: 100%;
+     /* border: 1px solid black; */
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+     gap: 10px;
+     padding: 10px;
+     flex-wrap: wrap;
+}
+
+.card {
+     height: 120px;
+     width: 100px;
+     /* border: 1px solid black; */
+     /* outline: white solid 9px; */
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     font-size: 50px;
+     font-weight: bold;
+     border-radius: 10px;
+     font-family: Arial, Helvetica, sans-serif;
+     /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); */
+     position: absolute;
+}
+
+.red {
+     background-color: var(--red);
+}
+
+.green {
+     background-color: var(--green);
+}
+
+.blue {
+     background-color: var(--blue);
+}
+
+.yellow {
+     background-color: var(--yellow);
+}
+
+.wild, .draw4 {
+     background-color: var(--black);
+     color: #ffffff;
+}
+.card:not(.draw4, .draw2) {
+     font-size: 70px;
+}
+.reverse-span {
+     transform: rotate(-45deg);
+}
+
+.draw-pile {
+     height: 120px;
+     width: 100%;
+     /* border: 1px solid black; */
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+     gap: 10px;
+     padding: 10px;
+     flex-wrap: wrap;
+     position: relative;
+}
+.draw-pile .card {
+     position: absolute;
+}
