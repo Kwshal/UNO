@@ -79,8 +79,12 @@ function renderCards(players) {
                const cardEl = document.createElement("div");
                const type = Number(card.value) === NaN || card.value.length > 1 ? "action" : "number";
                cardEl.classList.add("card", card.color, card.value, type);
-               if (card.value === "reverse") {
-                    cardEl.innerHTML = `<span class=\"reverse-span\">${cardFace[card.value]}</span>`;
+               if (card.value === "reverse" || card.value === "skip" || card.value === "wild") {
+                    const span = document.createElement("span");
+                    if (card.value === "reverse") span.classList.add("reverse");
+                    span.classList.add("card-span");
+                    span.innerHTML = cardFace[card.value];
+                    cardEl.appendChild(span);
                } else {
                     cardEl.innerHTML = cardFace[card.value];
                }
@@ -103,8 +107,12 @@ function renderCards(players) {
           const cardEl = document.createElement("div");
           const type = Number(card.value) === NaN || card.value.length > 1 ? "action" : "number";
           cardEl.classList.add("card", card.color, card.value, type);
-          if (card.value === "reverse") {
-               cardEl.innerHTML = `<span class=\"reverse-span\">${cardFace[card.value]}</span>`;
+          if (card.value === "reverse" || card.value === "skip" || card.value === "wild") {
+               const span = document.createElement("span");
+               span.innerHTML = cardFace[card.value];
+               if (card.value === "reverse") span.classList.add("reverse");
+               span.classList.add("card-span");
+               cardEl.appendChild(span);
           } else {
                cardEl.innerHTML = cardFace[card.value];
           }

@@ -1,9 +1,9 @@
 :root {
      /* Base color */
-     --red: hsl(0, 100%, 30%);
-     --green: hsl(120, 100%, 30%);
-     --blue: hsl(240, 100%, 30%);
-     --yellow: hsl(60, 100%, 30%);
+     --red: hsl(0, 100%, 40%);
+     --green: hsl(120, 100%, 40%);
+     --blue: hsl(240, 100%, 40%);
+     --yellow: hsl(60, 100%, 40%);
      --black: hsl(0, 0%, 0%);
 }
 
@@ -15,15 +15,16 @@
      /* border: 1px solid #000; */
 }
 body{
-     background-color: hsl(0, 0%, 5%);
+     background-color: hsl(0, 0%, 10%);
      color: #ddd;
 } 
 h1 {
-     font-size: 50px;
+     /* font-size: 50px; */
      font-weight: 900;
      margin: 10px 0;
      font-family: Arial, Helvetica, sans-serif;
      text-align: center;
+     text-shadow: 0px 2px #747474;
 }
 h2 {
      font-size: 100px;
@@ -31,6 +32,7 @@ h2 {
      margin: 10px 0;
      font-family: Arial, Helvetica, sans-serif;
      text-align: center;
+     text-shadow: 0px 8px #747474;
      /* background-color: #fff; */
 }
 hr {
@@ -92,7 +94,7 @@ hr {
      width: 90px;
      /* background-color: #202020; */
      border: 2px dashed #fff;
-     border-radius: 11px;
+     border-radius: 12px;
      display: flex;
      flex-direction: column;
      justify-content: center;
@@ -103,7 +105,8 @@ hr {
      z-index: 1;
      height: 120px;
      width: 90px;
-     /* border: 4px solid rgb(0, 0, 0); */
+     border: 3px solid lightgray;
+     /* border-bottom: 2px solid #707070; */
      /* outline: white solid 9px; */
      display: flex;
      flex-direction: column;
@@ -117,8 +120,9 @@ hr {
      position: absolute;
      touch-action: none;
      cursor: grab;
-     color: #e4e4e4;
-     text-shadow: 0 0 15px #000;
+     color: #ffffff;
+     text-shadow: 2px 2px #000, 3px 5px 10px #000000;
+
 }
 
 .red {
@@ -140,11 +144,20 @@ hr {
 .wild, .draw4 {
      background-color: var(--black);
      color: #ffffff;
+     text-shadow: 2px 2px #000, 0 0 30px #ffffff;
 }
 .card:not(.draw4, .draw2) {
      font-size: 70px;
 }
-.reverse-span {
+.card-span {
+     height: fit-content;
+     aspect-ratio: 1;
+     /* border: 1px solid #000; */
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+span.reverse {
      transform: rotate(-45deg);
 }
 .draw-pile-container {
