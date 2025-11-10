@@ -62,11 +62,20 @@ const cardFace = {
 }
 
 function renderCards(players) {
-
+     let num = 1;
      players.forEach(player => {
           const playerEl = document.createElement("div");
+          const cardsContainer = document.createElement("div");
+          cardsContainer.classList.add("cards-container");
           playerEl.classList.add("player");
+          playerEl.id = `player-${num}`;
+          playerEl.innerHTML = `<h1>Player ${num++}</h1>`;
+          playerEl.appendChild(cardsContainer);
+
           player.forEach(card => {
+               const cardHolderEl = document.createElement("div");
+               cardHolderEl.classList.add("card-holder");
+               cardsContainer.appendChild(cardHolderEl);
                const cardEl = document.createElement("div");
                const type = Number(card.value) === NaN || card.value.length > 1 ? "action" : "number";
                cardEl.classList.add("card", card.color, card.value, type);
@@ -77,17 +86,19 @@ function renderCards(players) {
                }
                cardEl.draggable = true;
                makeDraggable(cardEl);
-               playerEl.appendChild(cardEl);
+               cardHolderEl.appendChild(cardEl);
           });
           board.appendChild(playerEl);
           board.appendChild(document.createElement("hr"));
      });
+     const drawPileContainer = document.createElement("div");
+     drawPileContainer.classList.add("draw-pile-container");
+     board.appendChild(drawPileContainer);
      const drawPile = document.createElement("div");
      drawPile.classList.add("draw-pile");
      const h1 = document.createElement("h1");
      h1.textContent = `Draw Pile:`;
-     board.appendChild(h1);
-
+     drawPileContainer.appendChild(h1);
      cards.forEach(card => {
           const cardEl = document.createElement("div");
           const type = Number(card.value) === NaN || card.value.length > 1 ? "action" : "number";
@@ -101,7 +112,7 @@ function renderCards(players) {
           makeDraggable(cardEl);
           drawPile.appendChild(cardEl);
      });
-     board.appendChild(drawPile);
+     drawPileContainer.appendChild(drawPile);
 }
 function switchPlayer() {
 

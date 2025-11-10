@@ -1,9 +1,9 @@
 :root {
      /* Base color */
-     --red: hsl(0, 100%, 80%);
-     --green: hsl(120, 100%, 80%);
-     --blue: hsl(240, 100%, 80%);
-     --yellow: hsl(60, 100%, 80%);
+     --red: hsl(0, 100%, 30%);
+     --green: hsl(120, 100%, 30%);
+     --blue: hsl(240, 100%, 30%);
+     --yellow: hsl(60, 100%, 30%);
      --black: hsl(0, 0%, 0%);
 }
 
@@ -12,7 +12,12 @@
      padding: 0;
      box-sizing: border-box;
      user-select: none;
+     /* border: 1px solid #000; */
 }
+body{
+     background-color: hsl(0, 0%, 5%);
+     color: #ddd;
+} 
 h1 {
      font-size: 50px;
      font-weight: 900;
@@ -20,8 +25,22 @@ h1 {
      font-family: Arial, Helvetica, sans-serif;
      text-align: center;
 }
+h2 {
+     font-size: 100px;
+     font-weight: 900;
+     margin: 10px 0;
+     font-family: Arial, Helvetica, sans-serif;
+     text-align: center;
+     /* background-color: #fff; */
+}
+hr {
+     width: 100%;
+     /* height: 1px; */
+     background-color: #fff;
+     border: 3px solid #000;
+}
 #board {
-     height: fit-content;
+     min-height: 100vh;
      width: 100vw;
      /* border: 1px solid black; */
      display: flex;
@@ -40,24 +59,51 @@ h1 {
      padding: 10px 20px;
      font-family: Arial, Helvetica, sans-serif;
      border: 5px solid #000;
+     margin-bottom: 20px;
 }
 .player {
      height: fit-content;
      width: 100%;
      /* border: 1px solid black; */
      display: flex;
-     flex-direction: row;
+     flex-direction: column;
      justify-content: center;
      align-items: center;
      gap: 10px;
-     padding: 10px;
+     /* padding: 10px; */
      flex-wrap: wrap;
+     /* border: 1px solid #000; */
 }
 
-.card {
+.cards-container {
+     height: fit-content;
+     width: fit-content;
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+     flex-wrap: wrap;
+     gap: 10px;
+     padding: 10px;
+}
+.card-holder {
+     position: relative;
      height: 120px;
      width: 90px;
-     border: 5px solid black;
+     /* background-color: #202020; */
+     border: 2px dashed #fff;
+     border-radius: 11px;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     z-index: 0;
+}
+.card {
+     z-index: 1;
+     height: 120px;
+     width: 90px;
+     /* border: 4px solid rgb(0, 0, 0); */
      /* outline: white solid 9px; */
      display: flex;
      flex-direction: column;
@@ -71,6 +117,8 @@ h1 {
      position: absolute;
      touch-action: none;
      cursor: grab;
+     color: #e4e4e4;
+     text-shadow: 0 0 15px #000;
 }
 
 .red {
@@ -99,7 +147,17 @@ h1 {
 .reverse-span {
      transform: rotate(-45deg);
 }
-
+.draw-pile-container {
+     height: fit-content;
+     width: 100%;
+     /* border: 1px solid black; */
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     gap: 10px;
+     padding: 10px;
+}
 .draw-pile {
      height: 120px;
      width: 100%;
