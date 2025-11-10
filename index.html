@@ -9,10 +9,33 @@
 </head>
 
 <body>
+     <header>
+          <h1>Player 1</h1>
+     </header>
      <main id="board">
-          <h2>UNO</h2>
-          <button id="start-button">Start Game</button>
-          
+          <section id="header">
+               <h2>UNO</h2>
+               <label id="number-of-players" for="players-slider">
+                    Number of Players:
+                    <input type="range" id="players-slider" min="2" max="10" value="2">
+                    <output id="players-num">2</output>
+               </label>
+               <label id="number-of-cards" for="cards-slider">
+                    Number of Cards:
+                    <input type="range" id="cards-slider" min="7" max="15" value="2">
+                    <output id="cards-num">7</output>
+               </label>
+               <button id="start-button">Start Game</button>
+          </section>
+          <div id="arena">
+               <div id="house">
+                    <h3>Cards Go Here</h3>
+                    <!-- cards go here -->
+               </div>
+          </div>
+          <div id="players">
+
+          </div>
      </main>
      <script src="uno.js"></script>
 </body>

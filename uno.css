@@ -18,6 +18,10 @@ body{
      background-color: hsl(0, 0%, 10%);
      color: #ddd;
 } 
+header {
+     background-color: #000000;
+     padding: 10px;
+}
 h1 {
      /* font-size: 50px; */
      font-weight: 900;
@@ -26,12 +30,12 @@ h1 {
      text-align: center;
      text-shadow: 0px 2px #747474;
 }
-h2 {
+#header h2 {
      font-size: 100px;
-     font-weight: 900;
      margin: 10px 0;
-     font-family: Arial, Helvetica, sans-serif;
+     font-family: 'Lucida Sans',Helvetica, sans-serif;
      text-align: center;
+     font-weight: 900;
      text-shadow: 0px 8px #747474;
      /* background-color: #fff; */
 }
@@ -42,13 +46,27 @@ hr {
      border: 3px solid #000;
 }
 #board {
-     min-height: 100vh;
-     width: 100vw;
+     min-height: 100%;
+     height: fit-content;
+     width: 100%;
      /* border: 1px solid black; */
      display: flex;
      flex-direction: column;
      justify-content: center;
      align-items: center;
+     /* padding: 10px; */
+     background-color: hsl(0, 0%, 10%);
+}
+#header {
+     height: fit-content;
+     width: 100%;
+     /* border: 1px solid black; */
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     gap: 10px;
+     padding: 10px;
 }
 #start-button {
      height: fit-content;
@@ -62,6 +80,70 @@ hr {
      font-family: Arial, Helvetica, sans-serif;
      border: 5px solid #000;
      margin-bottom: 20px;
+}
+label {
+     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+     gap: 10px;
+}
+input[type="range"] {
+     -webkit-appearance: none;
+     appearance: none;
+     width: 100px;
+     height: 2px;
+     background: #d3d3d3;
+     /* padding: 2px; */
+     border-radius: 50px;
+     outline: none;
+     opacity: 0.7;
+     -webkit-transition: 0.2s;
+     transition: opacity 0.2s;
+}
+#arena {
+     width: 100%;
+     
+     height: clamp(300px, 300px, 600px);
+     /* border: 1px solid black; */
+     display: flex;
+     flex-direction: row;
+     /* justify-content: center; */
+     align-items: center;
+     gap: 10px;
+     /* padding: 10px; */
+     /* border-radius: 10px; */
+     /* flex-wrap: wrap; */
+     background-color: #000000;
+     perspective: 1000px;
+}
+#house {
+     height: 100%;
+     width: 100%;
+     /* border: 1px solid black; */
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+     gap: 10px;
+     padding: 10px;
+     border-radius: 10px;
+     flex-wrap: wrap;
+     background-color: #494949;
+     transform: rotate3d(1, 0, 0, 45deg);
+}
+#players {
+     height: 300px;
+     width: 100%;
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+     gap: 10px;
+     padding: 10px;
+     flex-wrap: wrap;
+     /* border: 1px solid #000; */
 }
 .player {
      height: fit-content;
@@ -84,7 +166,7 @@ hr {
      flex-direction: row;
      justify-content: center;
      align-items: center;
-     flex-wrap: wrap;
+     /* flex-wrap: wrap; */
      gap: 10px;
      padding: 10px;
 }
@@ -120,37 +202,33 @@ hr {
      position: absolute;
      touch-action: none;
      cursor: grab;
-     color: #ffffff;
-     text-shadow: 2px 2px #000, 3px 5px 10px #000000;
+     color: #ddd;
+     text-shadow: 3px 3px #000;
 
 }
 
 .red {
      background-color: var(--red);
 }
-
 .green {
      background-color: var(--green);
 }
-
 .blue {
      background-color: var(--blue);
 }
-
 .yellow {
      background-color: var(--yellow);
 }
-
 .wild, .draw4 {
      background-color: var(--black);
      color: #ffffff;
-     text-shadow: 2px 2px #000, 0 0 30px #ffffff;
+     /* text-shadow: 2px 2px #000, 0 0 30px #ffffff; */
 }
 .card:not(.draw4, .draw2) {
      font-size: 70px;
 }
 .card-span {
-     height: fit-content;
+     height: max-content;
      aspect-ratio: 1;
      /* border: 1px solid #000; */
      display: flex;
@@ -159,9 +237,10 @@ hr {
 }
 span.reverse {
      transform: rotate(-45deg);
+     border: 1px solid #000;
 }
 .draw-pile-container {
-     height: fit-content;
+     height: 100%;
      width: 100%;
      /* border: 1px solid black; */
      display: flex;
@@ -172,9 +251,9 @@ span.reverse {
      padding: 10px;
 }
 .draw-pile {
-     height: 120px;
+     height: 100%;
      width: 100%;
-     /* border: 1px solid black; */
+     border: 1px solid black;
      display: flex;
      flex-direction: row;
      justify-content: center;
@@ -186,4 +265,10 @@ span.reverse {
 }
 .draw-pile .card {
      position: absolute;
+     height: 160px;
+     width: 120px;
+}
+.draw-pile-container h1 {
+     /* position: absolute; */
+     font-size: 30px;
 }
